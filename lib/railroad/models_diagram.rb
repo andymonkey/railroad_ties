@@ -22,8 +22,15 @@ class ModelsDiagram < AppDiagram
   # Process model files
   def generate
     STDERR.print "Generating models diagram\n" if @options.verbose
-    files = Dir.glob("app/models/**/*.rb")
-    files += Dir.glob("vendor/plugins/**/app/models/*.rb") if @options.plugins_models    
+    if @options.include.empty?
+      files = Dir.glob("app/models/**/*.rb")
+      files += Dir.glob("vendor/plugins/**/app/models/*.rb") if @options.plugins_models
+    else
+      files = []
+      @options.include.each do |inc|
+        files += Dir.glob(inc)
+      end
+    end
     files -= @options.exclude
     files.each do |f| 
       process_class constantize(extract_class_name(f))
