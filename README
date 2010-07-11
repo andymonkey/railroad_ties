@@ -1,10 +1,11 @@
-= RailRoad_Xing
+= RailRoad_Ties
+
+Fork of RailRoad_Xing to add support for file inclusion globbing with a command-line option.
 
 Fork of http://railroad.rubyforge.org/ to add support for Merb and DataMapper.
 
 RailRoad generates models and controllers diagrams in DOT language for a 
 Rails or Merb application.
-
 
 = Usage
 
@@ -18,15 +19,16 @@ and controller diagrams are best processed using neato.
 == Options
 
 Common options:
-    -b, --brief                      Generate compact diagram
-                                       (no attributes nor methods)
-    -e, --exclude file1[,fileN]      Exclude given files
-    -i, --inheritance                Include inheritance relations
-    -l, --label                      Add a label with diagram information
-                                       (type, date, migration, version)
-    -o, --output FILE                Write diagram to file FILE
-    -v, --verbose                    Enable verbose output
-                                       (produce messages to STDOUT)
+    -b, --brief                        Generate compact diagram
+                                         (no attributes nor methods)
+    -in, --include pattern1[,patternN] Include given files
+    -ex, --exclude file1[,fileN]       Exclude given files
+    -i, --inheritance                  Include inheritance relations
+    -l, --label                        Add a label with diagram information
+                                         (type, date, migration, version)
+    -o, --output FILE                  Write diagram to file FILE
+    -v, --verbose                      Enable verbose output
+                                         (produce messages to STDOUT)
 
 Models diagram options:
     -a, --all                        Include all models
